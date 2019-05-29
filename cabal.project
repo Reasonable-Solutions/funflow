@@ -1,0 +1,6 @@
+packages: funflow/
+          funflow-aws/
+          funflow-cwl/
+          funflow-checkpoints/
+          funflow-jobs/
+          funflow-examples/
