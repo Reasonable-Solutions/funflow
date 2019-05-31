@@ -1,6 +1,16 @@
 let
-  pkgs = import <nixpkgs> { };
+  config = {
+    packageOverrides = pkgs: rec {
+      haskellPackages = pkgs.haskellPackages.override {
+        overrides = haskellPackagesNew: haskellPackagesOld: rec {
+          funflow =
+            haskellPackagesNew.callPackage ../funflow/default.nix { };
+        };
+      };
+    };
+  };
+
+  pkgs = import <nixpkgs> { inherit config; };
 in
-  { funflow = pkgs.haskellPackages.callPackage ./default.nix {
-   };
-  }
+{ funflowCwl = pkgs.haskellPackages.callPackage ./default.nix { };
+ }
