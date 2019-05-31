@@ -79,7 +79,7 @@ sleepEcho = external $ \(time, msg) -> ExternalTask
   { _etCommand = "sh"
   , _etWriteToStdOut = StdOutCapture
   , _etParams =
-      [ "-c"
+      [  "-c"
       , "sleep " <> fromString (show time) <> ";"
         <> "echo -n " <> fromString msg
       ]
